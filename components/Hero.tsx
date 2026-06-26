@@ -1,61 +1,75 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
+const Hashtag = ({ className }: { className?: string }) => (
+  <svg width="60" height="60" viewBox="0 0 100 100" fill="none" className={className}>
+    <path d="M40 15 L20 85 M80 15 L60 85 M15 35 L85 35 M15 65 L85 65" stroke="white" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const CurvedArrow = ({ className }: { className?: string }) => (
+  <svg width="80" height="80" viewBox="0 0 100 100" fill="none" className={className}>
+    <path d="M10 30 Q 50 10 80 60" stroke="white" strokeWidth="6" strokeLinecap="round" fill="none" />
+    <path d="M55 60 L 80 60 L 75 35" stroke="white" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+  </svg>
+);
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[#141414] flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen pt-20 bg-[#141414] flex flex-col items-center justify-center overflow-hidden">
       
       {/* Background glowing effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f8c02c]/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center text-center">
         
-        {/* We recreate the aesthetic of the hero image provided but with the correct Adamo Media text */}
-        <div className="relative inline-block mb-8">
+        {/* Decorative elements container */}
+        <div className="relative inline-flex flex-col items-center">
           
-          {/* Decorative Arrows mimicking the image_hero.png */}
-          <div className="absolute -top-16 -left-12 lg:-left-24 opacity-60 animate-bounce" style={{ animationDuration: '3s' }}>
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform -rotate-45">
-              <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
-          </div>
-          <div className="absolute -top-16 -right-12 lg:-right-24 opacity-60 animate-bounce" style={{ animationDuration: '3.5s' }}>
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform rotate-45">
-              <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
+          {/* Top Left */}
+          <div className="absolute -top-16 -left-12 sm:-top-20 sm:-left-24 md:-top-24 md:-left-40 flex items-start gap-1 sm:gap-2">
+            <Hashtag className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 transform -rotate-12" />
+            <CurvedArrow className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 mt-2 sm:mt-4" />
           </div>
 
-          <div className="absolute -bottom-16 -left-12 lg:-left-24 opacity-60 animate-bounce" style={{ animationDuration: '4s' }}>
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform -rotate-[135deg]">
-              <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
+          {/* Top Right */}
+          <div className="absolute -top-16 -right-12 sm:-top-20 sm:-right-24 md:-top-24 md:-right-40 flex items-start gap-1 sm:gap-2">
+            <CurvedArrow className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 mt-2 sm:mt-4 -scale-x-100" />
+            <Hashtag className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 transform rotate-12" />
           </div>
-          <div className="absolute -bottom-16 -right-12 lg:-right-24 opacity-60 animate-bounce" style={{ animationDuration: '2.5s' }}>
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform rotate-[135deg]">
-              <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
+
+          {/* Bottom Left */}
+          <div className="absolute bottom-16 -left-10 sm:bottom-20 sm:-left-20 md:bottom-24 md:-left-32 flex items-end gap-1 sm:gap-2">
+            <Hashtag className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 transform -rotate-12" />
+            <CurvedArrow className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 mb-2 sm:mb-4 -scale-y-100" />
+          </div>
+
+          {/* Bottom Right */}
+          <div className="absolute bottom-16 -right-10 sm:bottom-20 sm:-right-20 md:bottom-24 md:-right-32 flex items-end gap-1 sm:gap-2">
+            <CurvedArrow className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 mb-2 sm:mb-4 -scale-x-100 -scale-y-100" />
+            <Hashtag className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 transform rotate-12" />
           </div>
           
-          <h1 className="text-6xl sm:text-7xl lg:text-[100px] font-black tracking-tighter text-white leading-none">
-            Adamo<span className="text-[#f8c02c]">Media</span>
-          </h1>
-          <div className="mt-2 text-2xl sm:text-3xl lg:text-5xl font-bold tracking-widest text-[#f8c02c] uppercase">
-            Twój Partner
+          {/* Main Logo Text in Hero */}
+          <div className="flex flex-col items-center relative z-10">
+            <div className="relative font-black text-white leading-none tracking-tighter flex items-start">
+              <span className="text-[60px] sm:text-[100px] md:text-[140px] lg:text-[160px]">Adamo</span>
+              {/* Attribute sits inline to the right of the word, aligned to its top */}
+              <div className="self-start ml-1 sm:ml-2 mt-1 sm:mt-2 md:mt-3 transition-transform hover:scale-110 hover:rotate-12 flex-shrink-0">
+                <img src="/attributte_to_logo_right_top.png" alt="Logo Attribute" className="w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain" />
+              </div>
+            </div>
+            <div className="text-[#f8c02c] font-bold text-[24px] sm:text-[36px] md:text-[50px] lg:text-[60px] tracking-[0.25em] sm:tracking-[0.3em] leading-none mt-2 sm:mt-4 uppercase">
+              Media
+            </div>
           </div>
-        </div>
-
-        <Link 
-          href="#wspolpraca" 
-          className="mt-12 group flex items-center gap-3 bg-[#f8c02c] hover:bg-yellow-400 text-[#141414] font-bold py-4 px-8 rounded-full text-sm sm:text-base uppercase tracking-wider transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(248,192,44,0.3)] hover:shadow-[0_0_60px_rgba(248,192,44,0.5)]"
-        >
-          Pomagamy zamienić pasję w dochodowy biznes
-          <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-        </Link>
-        
-        {/* Just in case the user meant to literally include the image as a hidden or fallback asset, we can keep a reference or use it behind */}
-        <div className="mt-16 w-full max-w-2xl opacity-10 pointer-events-none hidden">
-          <Image src="/image_hero.png" alt="Hero Background" width={800} height={400} className="w-full h-auto object-contain" />
+          
+          <Link 
+            href="#wspolpraca" 
+            className="mt-12 sm:mt-16 group flex items-center gap-2 bg-[#f8c02c] hover:bg-yellow-400 text-[#141414] font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-full text-[10px] sm:text-xs md:text-sm uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(248,192,44,0.3)] whitespace-nowrap z-10"
+          >
+            Pomagamy zamienić pasję w dochodowy biznes. <span className="ml-1 sm:ml-2 font-black text-sm sm:text-lg leading-none transition-transform group-hover:translate-x-1">→</span>
+          </Link>
+          
         </div>
 
       </div>

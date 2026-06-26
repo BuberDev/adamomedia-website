@@ -2,19 +2,19 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Imię i nazwisko",
+    name: "Katarzyna Nowak",
     role: "Dietetyk Kliniczny",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id odio mattis, fermentum turpis non, tristique eros.",
+    content: "Współpraca z Adamo Media to był strzał w dziesiątkę. Dzięki ich strategii marketingowej mój gabinet zaczął w końcu przynosić oczekiwane zyski, a grafiki są na najwyższym poziomie.",
   },
   {
-    name: "Imię i nazwisko",
-    role: "Właściciel Gabinetu",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id odio mattis, fermentum turpis non, tristique eros.",
+    name: "Michał Kowalski",
+    role: "Właściciel Gabinetu Dietetycznego",
+    content: "Pełen profesjonalizm i świetny kontakt. Zbudowali dla nas spójną markę, co bezpośrednio przełożyło się na większą ilość zapytań o konsultacje i stałych pacjentów.",
   },
   {
-    name: "Imię i nazwisko",
-    role: "Trener Personalny",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id odio mattis, fermentum turpis non, tristique eros.",
+    name: "Anna Wiśniewska",
+    role: "Dietetyk & Trener Personalny",
+    content: "Nigdy nie wierzyłam w reklamy w internecie, ale zespół Adamo Media udowodnił mi, jak bardzo się myliłam. Odpowiednia kampania sprawiła, że mój grafik jest pełen na miesiąc do przodu.",
   },
 ];
 
