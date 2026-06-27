@@ -37,10 +37,10 @@ export function Navbar() {
 
   const navLinks = [
     ["Strona główna", "/"],
-    ["O nas", "#o-nas"],
-    ["Współpraca", "#wspolpraca"],
-    ["Historie klientów", "#opinie"],
-    ["Blog", "#blog"],
+    ["O nas", "/o-nas"],
+    ["Współpraca", "/wspolpraca"],
+    ["Historie klientów", "/historie-klientow"],
+    ["Blog", "/blog"],
   ];
 
   const socialLinks = [
