@@ -50,54 +50,56 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#141414]/90 backdrop-blur-md border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="z-50 relative" onClick={() => setIsOpen(false)}>
-          <Logo scale={0.7} />
-        </Link>
-
-        {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map(([title, url]) => (
-            <Link
-              key={title}
-              href={url}
-              className="text-sm font-semibold text-gray-300 hover:text-white transition-colors"
-            >
-              {title}
-            </Link>
-          ))}
-          <Link
-            href="#konsultacja"
-            className="text-sm font-bold text-white hover:text-[#f8c02c] transition-colors"
-          >
-            Bezpłatna konsultacja
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-[9999] bg-[#141414]/90 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="z-10 relative" onClick={() => setIsOpen(false)}>
+            <Logo scale={0.7} />
           </Link>
-        </div>
 
-        {/* Social Icons & Mobile Menu Button */}
-        <div className="flex items-center gap-4 z-50 relative">
-          <div className="hidden md:flex items-center gap-4 border-l border-white/10 pl-4">
-            {socialLinks.map(({ href, icon: Icon, label }) => (
-              <Link key={label} href={href} target="_blank" aria-label={label} className="text-gray-400 hover:text-[#f8c02c] transition-colors">
-                <Icon size={20} />
+          {/* Desktop Links */}
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map(([title, url]) => (
+              <Link
+                key={title}
+                href={url}
+                className="text-sm font-semibold text-gray-300 hover:text-white transition-colors"
+              >
+                {title}
               </Link>
             ))}
+            <Link
+              href="#konsultacja"
+              className="text-sm font-bold text-white hover:text-[#f8c02c] transition-colors"
+            >
+              Bezpłatna konsultacja
+            </Link>
           </div>
-          <button 
-            className="lg:hidden text-white p-2 -mr-2 transition-transform active:scale-95"
-            onClick={toggleMenu}
-            aria-label={isOpen ? "Zamknij menu" : "Otwórz menu"}
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+
+          {/* Social Icons & Mobile Menu Button */}
+          <div className="flex items-center gap-4 z-10 relative">
+            <div className="hidden md:flex items-center gap-4 border-l border-white/10 pl-4">
+              {socialLinks.map(({ href, icon: Icon, label }) => (
+                <Link key={label} href={href} target="_blank" aria-label={label} className="text-gray-400 hover:text-[#f8c02c] transition-colors">
+                  <Icon size={20} />
+                </Link>
+              ))}
+            </div>
+            <button 
+              className="lg:hidden text-white p-2 -mr-2 transition-transform active:scale-95"
+              onClick={toggleMenu}
+              aria-label={isOpen ? "Zamknij menu" : "Otwórz menu"}
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-[9997] bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsOpen(false)}
@@ -107,7 +109,7 @@ export function Navbar() {
 
       {/* Mobile Menu Sidebar */}
       <div 
-        className={`fixed top-[80px] right-0 bottom-0 w-[80%] max-w-sm bg-[#1a1a1a]/95 backdrop-blur-xl border-l border-white/10 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden flex flex-col ${
+        className={`fixed top-[80px] right-0 bottom-0 z-[9998] w-[80%] max-w-sm bg-[#1a1a1a]/95 backdrop-blur-xl border-l border-white/10 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden flex flex-col ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -117,12 +119,11 @@ export function Navbar() {
               key={title}
               href={url}
               onClick={() => setIsOpen(false)}
-              className="text-lg font-semibold text-gray-200 hover:text-[#f8c02c] transition-colors"
+              className="text-lg font-semibold text-gray-200 hover:text-[#f8c02c] transition-all duration-300 ease-out"
               style={{
                 transitionDelay: isOpen ? `${100 + i * 50}ms` : '0ms',
                 transform: isOpen ? 'translateY(0)' : 'translateY(10px)',
-                opacity: isOpen ? 1 : 0,
-                transition: 'all 0.4s ease-out'
+                opacity: isOpen ? 1 : 0
               }}
             >
               {title}
@@ -131,12 +132,11 @@ export function Navbar() {
           <Link
             href="#konsultacja"
             onClick={() => setIsOpen(false)}
-            className="text-lg font-bold text-[#f8c02c] hover:text-white transition-colors mt-2"
+            className="text-lg font-bold text-[#f8c02c] hover:text-white transition-all duration-300 ease-out mt-2"
             style={{
               transitionDelay: isOpen ? `${100 + navLinks.length * 50}ms` : '0ms',
               transform: isOpen ? 'translateY(0)' : 'translateY(10px)',
-              opacity: isOpen ? 1 : 0,
-              transition: 'all 0.4s ease-out'
+              opacity: isOpen ? 1 : 0
             }}
           >
             Bezpłatna konsultacja
@@ -144,12 +144,11 @@ export function Navbar() {
 
           {/* Mobile Social Links */}
           <div 
-            className="flex items-center gap-6 mt-8 pt-8 border-t border-white/10 md:hidden"
+            className="flex items-center gap-6 mt-8 pt-8 border-t border-white/10 md:hidden transition-all duration-300 ease-out"
             style={{
               transitionDelay: isOpen ? `${100 + (navLinks.length + 1) * 50}ms` : '0ms',
               transform: isOpen ? 'translateY(0)' : 'translateY(10px)',
-              opacity: isOpen ? 1 : 0,
-              transition: 'all 0.4s ease-out'
+              opacity: isOpen ? 1 : 0
             }}
           >
             {socialLinks.map(({ href, icon: Icon, label }) => (
@@ -160,6 +159,6 @@ export function Navbar() {
           </div>
         </div>
       </div>
-    </nav>
+    </>
   );
 }
