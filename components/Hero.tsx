@@ -52,7 +52,14 @@ export function Hero() {
           {/* Main Logo Text in Hero */}
           <div className="flex flex-col items-center relative z-10">
             <div className="relative font-black text-white leading-none tracking-tighter flex items-start">
-              <span className="text-[60px] sm:text-[100px] md:text-[140px] lg:text-[160px]">Adamo</span>
+              <span 
+                className="text-[60px] sm:text-[100px] md:text-[140px] lg:text-[160px]"
+                style={{ 
+                  WebkitTextStroke: '6px white',
+                  paintOrder: 'stroke fill',
+                  filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.4))'
+                }}
+              >Adamo</span>
               {/* Attribute sits inline to the right of the word, aligned to its top */}
               <div className="self-start ml-1 sm:ml-2 mt-1 sm:mt-2 md:mt-3 transition-transform hover:scale-110 hover:rotate-12 flex-shrink-0">
                 <img src="/attributte_to_logo_right_top.png" alt="Logo Attribute" className="w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain" />
